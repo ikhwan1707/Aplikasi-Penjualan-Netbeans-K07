@@ -30,7 +30,7 @@ public class tableBarang extends javax.swing.JFrame {
         kdBarang = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        namaBarang = new javax.swing.JTextField();
         hargaNet = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -40,15 +40,18 @@ public class tableBarang extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBarang = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        addNew = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
+        Close = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
+        Save = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CbxKodeJenis = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jenisBarang = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        Update = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +65,7 @@ public class tableBarang extends javax.swing.JFrame {
 
         jLabel3.setText("Kode Jenis");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 330, -1));
+        getContentPane().add(namaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 330, -1));
         getContentPane().add(hargaNet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, -1));
 
         jLabel4.setText("Harga Net");
@@ -74,7 +77,7 @@ public class tableBarang extends javax.swing.JFrame {
 
         jLabel6.setText("Stock");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 60, -1));
-        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 110, -1));
+        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 50, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,34 +97,43 @@ public class tableBarang extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableBarang);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 420, 220));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 650, 220));
 
-        jButton1.setText("Add");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
+        addNew.setText("Add");
+        getContentPane().add(addNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
 
-        jButton2.setText("Hapus");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, -1, -1));
+        Delete.setText("Delete");
+        getContentPane().add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
 
-        jButton3.setText("Clear");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 70, -1));
+        Close.setText("Close");
+        getContentPane().add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, 70, -1));
 
-        jButton4.setText("Edit");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 70, -1));
+        Cancel.setText("Cancel");
+        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 70, -1));
 
-        jButton5.setText("Simpan");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, -1));
+        Save.setText("Save");
+        getContentPane().add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 710, 50));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 110, 20));
+        CbxKodeJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Kode Jenis Barang", " " }));
+        getContentPane().add(CbxKodeJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 170, 20));
 
         jLabel8.setText("Jenis Barang");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        jTextField3.setEnabled(false);
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 110, -1));
+        jenisBarang.setEnabled(false);
+        getContentPane().add(jenisBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 330, -1));
+
+        jLabel9.setText("Rp");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+
+        jLabel10.setText("Rp");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+
+        Update.setText("Update");
+        getContentPane().add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,16 +174,18 @@ public class tableBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancel;
+    private javax.swing.JComboBox<String> CbxKodeJenis;
+    private javax.swing.JButton Close;
+    private javax.swing.JButton Delete;
+    private javax.swing.JButton Save;
     private javax.swing.JTextField Stock;
+    private javax.swing.JButton Update;
+    private javax.swing.JButton addNew;
     private javax.swing.JTextField hargaJual;
     private javax.swing.JTextField hargaNet;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -179,11 +193,12 @@ public class tableBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jenisBarang;
     private javax.swing.JTextField kdBarang;
+    private javax.swing.JTextField namaBarang;
     private javax.swing.JTable tableBarang;
     // End of variables declaration//GEN-END:variables
 }
