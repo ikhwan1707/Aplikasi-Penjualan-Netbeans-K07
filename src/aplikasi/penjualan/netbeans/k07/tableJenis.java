@@ -15,6 +15,7 @@ public class tableJenis extends javax.swing.JFrame {
      */
     public tableJenis() {
         initComponents();
+        
     }
 
     /**
@@ -64,6 +65,12 @@ public class tableJenis extends javax.swing.JFrame {
         jLabel3.setText("Jenis Barang");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         getContentPane().add(txtkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 110, -1));
+
+        txtjenisbarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtjenisbarangActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtjenisbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 350, -1));
 
         tbljenis.setModel(new javax.swing.table.DefaultTableModel(
@@ -82,6 +89,11 @@ public class tableJenis extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 440, 240));
 
         btnnew.setText("Add New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 90, -1));
 
         btnsave.setText("Save");
@@ -101,6 +113,14 @@ public class tableJenis extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        // TODO add your handling code here:    
+    }//GEN-LAST:event_btnnewActionPerformed
+
+    private void txtjenisbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtjenisbarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtjenisbarangActionPerformed
 
     /**
      * @param args the command line arguments
