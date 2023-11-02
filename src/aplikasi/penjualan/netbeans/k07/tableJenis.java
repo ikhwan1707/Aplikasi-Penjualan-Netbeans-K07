@@ -63,7 +63,7 @@ public class tableJenis extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Jenis Barang");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-        getContentPane().add(txtkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
+        getContentPane().add(txtkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 110, -1));
         getContentPane().add(txtjenisbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 350, -1));
 
         tbljenis.setModel(new javax.swing.table.DefaultTableModel(
