@@ -3,6 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package aplikasi.penjualan.netbeans.k07;
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +24,28 @@ public class tableJenis extends javax.swing.JFrame {
      */
     public tableJenis() {
         initComponents();
+//        loadData();
+//        kosong();
         
+        setEnabledFalse();
+    }
+    
+    public void setEnabledFalse(){
+        txtkode.setEnabled(false);
+        txtjenisbarang.setEnabled(false);
+        btnsave.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+    }
+    
+    public void setEnabledTrue(){
+        txtkode.setEnabled(true);
+        txtjenisbarang.setEnabled(true);
+        btnsave.setEnabled(true);
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
+        btncancel.setEnabled(true);
     }
 
     /**
@@ -84,6 +114,11 @@ public class tableJenis extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbljenis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbljenisMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbljenis);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 440, 240));
@@ -97,30 +132,87 @@ public class tableJenis extends javax.swing.JFrame {
         getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 90, -1));
 
         btnsave.setText("Save");
-        getContentPane().add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 70, -1));
 
         btnupdate.setText("Update");
-        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 70, -1));
 
         btndelete.setText("Delete");
-        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 70, -1));
 
         btncancel.setText("Cancel");
-        getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 70, -1));
 
         btnclose.setText("Close");
-        getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, -1));
+        getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 70, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
-        // TODO add your handling code here:    
+        // TODO add your handling code here:   
+        setEnabledTrue();
+        btnnew.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
     }//GEN-LAST:event_btnnewActionPerformed
 
     private void txtjenisbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtjenisbarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtjenisbarangActionPerformed
+
+    private void tbljenisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbljenisMouseClicked
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btndelete.setEnabled(true);
+        btnupdate.setEnabled(true);
+    }//GEN-LAST:event_tbljenisMouseClicked
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        txtkode.setEnabled(true);
+        txtjenisbarang.setEnabled(true);
+        btnsave.setEnabled(true);
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btncancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,4 +265,12 @@ public class tableJenis extends javax.swing.JFrame {
     private javax.swing.JTextField txtjenisbarang;
     private javax.swing.JTextField txtkode;
     // End of variables declaration//GEN-END:variables
+
+//    private void loadData() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    private void kosong() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
