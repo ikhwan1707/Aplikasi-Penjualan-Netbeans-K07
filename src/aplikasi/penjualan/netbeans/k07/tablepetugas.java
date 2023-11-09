@@ -32,6 +32,7 @@ public class tablepetugas extends javax.swing.JFrame {
         loadData();
         kosong();
         SetEnabledFalse();
+        SetEnabledTrue();
         btnsv.setEnabled(false);
         btnupdate.setEnabled(false);
         btndelete.setEnabled(false);
@@ -181,6 +182,11 @@ public class tablepetugas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 470, 170));
@@ -202,9 +208,19 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(btnsv, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 60, -1));
 
         btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, -1, -1));
 
         btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
         btncancel.setText("Cancel");
@@ -216,6 +232,11 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, -1, -1));
 
         btnclose.setText("Close");
+        btnclose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncloseActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, -1, -1));
 
         pack();
@@ -278,6 +299,125 @@ public class tablepetugas extends javax.swing.JFrame {
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
        kosong();
     }//GEN-LAST:event_btncancelActionPerformed
+
+    private void tbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl1MouseClicked
+      int baris = tbl1.getSelectedRow();
+      
+      if (baris == -1) {
+            return;
+        }
+      
+        String Idpetugas = txtpetugas.getName();;
+        String nama = txtnama.getName();
+        String email = txtemail.getName();
+        String telpon = txttelpon.getName();
+        String alamat = txtalamat.getName();
+        txtpetugas.setText(Idpetugas);
+        txtnama.setText(nama);
+        txtemail.setText(email);
+        txttelpon.setText(telpon);
+        txtalamat.setText(alamat);
+      
+        SetEnabledTrue();
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
+        btncancel.setEnabled(true);
+        btnnew.setEnabled(false);
+    }//GEN-LAST:event_tbl1MouseClicked
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+         int i = tbl1.getSelectedRow();
+        
+        if(i == -1){
+            //tidak ada baris tewrseleksi
+            JOptionPane.showMessageDialog(this, "harap pilih data terlebih dahulu", "error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String id = (String) model.getValueAt(i, 0);
+        String nama = txtnama.getText();
+        String alamat = txtalamat.getText();
+        String email = txtemail.getText();
+        String telpon = txttelpon.getText();
+
+        try{
+            
+            Connection c = Koneksi.getKoneksi();
+
+            String sql = "UPDATE tblpetugas SET NamaPetugas = ?, Alamat = ?, Email = ?, Telpon = ? WHERE IDPetugas = ?";
+            
+            PreparedStatement p = c.prepareStatement(sql);
+            
+            p.setString(1, nama);
+            p.setString(2, email);
+            p.setString(3, telpon);
+            p.setString(4, alamat);
+            p.setString(5, id);
+            
+            p.executeUpdate();
+            p.close();
+            
+            JOptionPane.showMessageDialog(null,"Ubah Data Berhasil");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"Terjadi ERROR" + e.getMessage());
+        }finally{
+            loadData();
+            kosong();
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        int i = tbl1.getSelectedRow();
+        
+        if(i == -1){
+            //tidak ada baris terseleksi
+            JOptionPane.showMessageDialog(this, "harap pilih data terlebih dahulu", "error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+         String Idpetugas = (String) model.getValueAt(i, 0);
+        
+        try{
+            Connection c = Koneksi. getKoneksi();
+            
+            String sql = "DELETE FROM tblpetugas WHERE Idpetugas = ?";
+            
+            PreparedStatement p = c.prepareStatement(sql);
+            p.setString(1, Idpetugas);
+            p.executeUpdate();
+            p.close();
+            
+            JOptionPane.showMessageDialog(null,
+                       "Hapus Data Berhasil");
+                
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(this,
+                        e.getMessage());
+                
+            }finally{
+            loadData();
+            kosong();
+        
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_btncloseActionPerformed
 
     /**
      * @param args the command line arguments
