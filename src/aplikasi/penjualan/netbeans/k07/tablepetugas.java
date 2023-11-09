@@ -40,7 +40,7 @@ public class tablepetugas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txttelpon = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl1 = new javax.swing.JTable();
+        tablepetugas = new javax.swing.JTable();
         btnnew = new javax.swing.JButton();
         btnsv = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
@@ -88,7 +88,7 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
         getContentPane().add(txttelpon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 160, -1));
 
-        tbl1.setModel(new javax.swing.table.DefaultTableModel(
+        tablepetugas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -99,7 +99,7 @@ public class tablepetugas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbl1);
+        jScrollPane1.setViewportView(tablepetugas);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 470, 170));
 
@@ -175,7 +175,7 @@ public class tablepetugas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbl1;
+    private javax.swing.JTable tablepetugas;
     private javax.swing.JTextField txtalamat;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtnama;
