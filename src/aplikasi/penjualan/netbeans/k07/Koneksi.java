@@ -33,4 +33,10 @@ public class Koneksi {
     }
     return koneksi;
     }
+
+    static class koneksi {
+
+        public koneksi() {
+        }
+    }
 }

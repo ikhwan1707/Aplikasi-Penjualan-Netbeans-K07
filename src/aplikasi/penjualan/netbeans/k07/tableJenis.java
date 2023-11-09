@@ -39,7 +39,7 @@ public class tableJenis extends javax.swing.JFrame {
         btncancel.setEnabled(false);
     }
     
-    public void setEnabledTrue(){
+    public void setEnabledTrue(){  
         txtkode.setEnabled(true);
         txtjenisbarang.setEnabled(true);
         btnsave.setEnabled(true);
