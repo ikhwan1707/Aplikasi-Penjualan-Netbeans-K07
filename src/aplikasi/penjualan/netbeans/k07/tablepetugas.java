@@ -4,19 +4,101 @@
  */
 package aplikasi.penjualan.netbeans.k07;
 
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import aplikasi.penjualan.netbeans.k07.Koneksi.koneksi;
+
 /**
  *
  * @author labprogram123
  */
 public class tablepetugas extends javax.swing.JFrame {
 
+    private static void setModel(DefaultTableModel model) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private DefaultTableModel model;
     /**
      * Creates new form tablepetugas
      */
     public tablepetugas() {
         initComponents();
+        loadData();
+        kosong();
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+    }
+    
+     private void loadData() {
+        model = new DefaultTableModel();
+               
+        model.getDataVector().removeAllElements();
+        
+        model.fireTableDataChanged();
+        
+        tbl1.setModel(model);
+        model.addColumn("ID");
+        model.addColumn("Nama");
+        model.addColumn("Email");
+        model.addColumn("Telepon");
+        model.addColumn("Alamat");
+        
+         try{
+            
+            String sql = "SELECT * FROM tblpetugas";
+            
+            Connection c = Koneksi. getKoneksi();
+            Statement s = c.createStatement();
+            ResultSet r = s.executeQuery(sql);
+            
+            while(r.next()){
+                
+                model.addRow(new Object[]{
+                    r.getString(1),
+                    r.getString(2),
+                    r.getString(3),
+                    r.getString(4),
+                    r.getString(5)
+                });
+            }
+            tbl1.setModel(model);
+        }catch(SQLException e){
+            System.out.println("Terjadi Error"); 
+        }
+    }
+     
+     private void kosong(){
+        txtpetugas.setText(null);
+        txtnama.setText(null);
+        txtemail.setText(null);
+        txttelpon.setText(null);
+        txtalamat.setText(null);
     }
 
+     public void SetEnabledFalse(){
+        txtpetugas.setEnabled(false);
+        txtnama.setEnabled(false);
+        txtemail.setEnabled(false);
+        txttelpon.setEnabled(false);
+        txtalamat.setEnabled(false);
+    }
+     
+      public void SetEnabledTrue(){
+        txtpetugas.setEnabled(true);
+        txtnama.setEnabled(true);
+        txtemail.setEnabled(true);
+        txttelpon.setEnabled(true);
+        txtalamat.setEnabled(true);
+    }     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,9 +186,19 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 470, 170));
 
         btnnew.setText("Add New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
         btnsv.setText("Save");
+        btnsv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsvActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnsv, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 60, -1));
 
         btnupdate.setText("Update");
@@ -123,6 +215,60 @@ public class tablepetugas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsvActionPerformed
+        String id = txtpetugas.getText();
+        String nama = txtnama.getText();
+        String alamat = txtalamat.getText();
+        String email = txtemail.getText();
+        String telpon = txttelpon.getText();
+        
+        if ("".equals(id) || "".equals(nama) ||
+                "".equals(alamat)|| 
+                "".equals(email) || "".equals(telpon))
+        {
+            JOptionPane.showMessageDialog(this, "Harap Lengkapi Data", "error", JOptionPane.WARNING_MESSAGE);
+        } else {
+            
+            try{
+                Connection c = Koneksi. getKoneksi();
+                String sql = "insert into tblpetugas value ( ?, ?, ?, ?, ?)";
+                PreparedStatement p = c.prepareStatement(sql);
+                
+                p.setString(1, id);
+                p.setString(2, nama);
+                p.setString(3, email);
+                p.setString(4, telpon);
+                p.setString(5, alamat);
+                
+                p.executeUpdate();
+                p.close();
+                
+                JOptionPane.showMessageDialog(null, "penyimpanan data berhasil");
+              
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }finally{
+                loadData();
+                kosong();            }
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnsvActionPerformed
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        SetEnabledTrue();
+        btnsv.setEnabled(true);
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
+        btncancel.setEnabled(true);
+        btnnew.setEnabled(false);
+    }//GEN-LAST:event_btnnewActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,6 +15,7 @@ public class tableBarang extends javax.swing.JFrame {
      */
     public tableBarang() {
         initComponents();
+        
     }
 
     /**
@@ -100,6 +101,11 @@ public class tableBarang extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 650, 220));
 
         addNew.setText("Add");
+        addNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewActionPerformed(evt);
+            }
+        });
         getContentPane().add(addNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
 
         Delete.setText("Delete");
@@ -137,6 +143,10 @@ public class tableBarang extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
+        
+    }//GEN-LAST:event_addNewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,4 +211,8 @@ public class tableBarang extends javax.swing.JFrame {
     private javax.swing.JTextField namaBarang;
     private javax.swing.JTable tableBarang;
     // End of variables declaration//GEN-END:variables
+
+    private void SetEnabled() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
