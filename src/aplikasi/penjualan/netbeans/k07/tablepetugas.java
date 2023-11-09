@@ -208,6 +208,11 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
         btncancel.setText("Cancel");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, -1, -1));
 
         btnclose.setText("Close");
@@ -269,6 +274,10 @@ public class tablepetugas extends javax.swing.JFrame {
         btncancel.setEnabled(true);
         btnnew.setEnabled(false);
     }//GEN-LAST:event_btnnewActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+       kosong();
+    }//GEN-LAST:event_btncancelActionPerformed
 
     /**
      * @param args the command line arguments

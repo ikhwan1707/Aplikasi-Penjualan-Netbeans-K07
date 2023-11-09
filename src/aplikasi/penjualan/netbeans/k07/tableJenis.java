@@ -48,7 +48,7 @@ public class tableJenis extends javax.swing.JFrame {
         
         model.fireTableDataChanged();
         
-        tableJenis.setModel(model);
+        tbljenis.setModel(model);
         model.addColumn("Kode Jenis Barang");
         model.addColumn("Nama Jenis Barang");
         
