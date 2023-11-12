@@ -37,6 +37,12 @@ public class tablepetugas extends javax.swing.JFrame {
         btnupdate.setEnabled(false);
         btndelete.setEnabled(false);
         btncancel.setEnabled(false);
+        
+        txtpetugas.setEnabled(false);
+        txtnama.setEnabled(false);
+        txtemail.setEnabled(false);
+        txtalamat.setEnabled(false);
+        txttelpon.setEnabled(false);
     }
     
      private void loadData() {
@@ -100,6 +106,8 @@ public class tablepetugas extends javax.swing.JFrame {
         txttelpon.setEnabled(true);
         txtalamat.setEnabled(true);
     }     
+      
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -290,10 +298,12 @@ public class tablepetugas extends javax.swing.JFrame {
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         SetEnabledTrue();
         btnsv.setEnabled(true);
-        btnupdate.setEnabled(true);
-        btndelete.setEnabled(true);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
         btncancel.setEnabled(true);
         btnnew.setEnabled(false);
+        
+       
     }//GEN-LAST:event_btnnewActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
