@@ -315,7 +315,7 @@ public class tablepetugas extends javax.swing.JFrame {
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void tbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl1MouseClicked
-      int baris = tbl1.getSelectedRow();
+      int baris = tablepetugas.getSelectedRow();
       
       if (baris == -1) {
             return;
@@ -340,7 +340,7 @@ public class tablepetugas extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl1MouseClicked
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-         int i = tbl1.getSelectedRow();
+         int i = tablepetugas.getSelectedRow();
         
         if(i == -1){
             //tidak ada baris tewrseleksi
@@ -388,7 +388,7 @@ public class tablepetugas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        int i = tbl1.getSelectedRow();
+        int i = tablepetugas.getSelectedRow();
         
         if(i == -1){
             //tidak ada baris terseleksi
