@@ -15,7 +15,6 @@ public class tableBarang extends javax.swing.JFrame {
      */
     public tableBarang() {
         initComponents();
-        
     }
 
     /**
@@ -145,7 +144,7 @@ public class tableBarang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_addNewActionPerformed
 
     /**
@@ -211,8 +210,4 @@ public class tableBarang extends javax.swing.JFrame {
     private javax.swing.JTextField namaBarang;
     private javax.swing.JTable tableBarang;
     // End of variables declaration//GEN-END:variables
-
-    private void SetEnabled() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
