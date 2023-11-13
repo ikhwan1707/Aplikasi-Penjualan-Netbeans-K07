@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Connectin Database
-import Connection.db;
+import java.sql.Connection;
 
 public class DistributorController {
 

@@ -20,7 +20,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.lang.StringBuilder;
 
-import Connection.db;
+import java.sql.Connection;
 import Controllers.BarangController;
 
 public class BarangMasukController {
