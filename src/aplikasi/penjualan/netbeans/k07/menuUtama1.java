@@ -118,11 +118,14 @@ public class menuUtama1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pn_kiri.setBackground(new java.awt.Color(255, 255, 255));
+        pn_kiri.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/shopping-cart.png"))); // NOI18N
+        pn_kiri.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 38, 42, 25));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("MY MARKET");
+        jLabel2.setText("Toko Sederhana");
+        pn_kiri.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, -1));
 
         p_main.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,6 +180,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(btn_category, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
+
+        pn_kiri.add(p_main, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 295, -1, -1));
 
         p_main1.setBackground(new java.awt.Color(255, 255, 255));
         p_main1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -233,6 +238,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        pn_kiri.add(p_main1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 112, -1, -1));
+
         p_main2.setBackground(new java.awt.Color(255, 255, 255));
 
         p_i.setBackground(new java.awt.Color(255, 255, 255));
@@ -286,6 +293,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(btn_item, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        pn_kiri.add(p_main2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 173, -1, -1));
 
         p_main3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -342,6 +351,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        pn_kiri.add(p_main3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 234, -1, -1));
+
         p_main4.setBackground(new java.awt.Color(255, 255, 255));
 
         p_c.setBackground(new java.awt.Color(255, 255, 255));
@@ -395,6 +406,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(btn_customer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        pn_kiri.add(p_main4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 356, -1, -1));
 
         p_main5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -450,6 +463,8 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        pn_kiri.add(p_main5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 417, -1, -1));
+
         p_main6.setBackground(new java.awt.Color(255, 255, 255));
 
         p_d.setBackground(new java.awt.Color(255, 255, 255));
@@ -504,52 +519,7 @@ public class menuUtama1 extends javax.swing.JFrame {
                         .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
-        pn_kiri.setLayout(pn_kiriLayout);
-        pn_kiriLayout.setHorizontalGroup(
-            pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_kiriLayout.createSequentialGroup()
-                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn_kiriLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pn_kiriLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(p_main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p_main6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pn_kiriLayout.setVerticalGroup(
-            pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_kiriLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 49, 49)
-                .addComponent(p_main1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p_main6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        pn_kiri.add(p_main6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 478, -1, -1));
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
 

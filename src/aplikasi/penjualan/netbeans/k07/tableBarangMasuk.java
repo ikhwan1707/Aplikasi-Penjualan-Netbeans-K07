@@ -149,6 +149,11 @@ public class tableBarangMasuk extends javax.swing.JFrame {
 
         addNew.setBackground(new java.awt.Color(204, 204, 204));
         addNew.setText("Add New");
+        addNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewActionPerformed(evt);
+            }
+        });
 
         transaksi.setBackground(new java.awt.Color(204, 204, 204));
         transaksi.setText("Save Transaction");
@@ -318,7 +323,7 @@ public class tableBarangMasuk extends javax.swing.JFrame {
                     .addComponent(close)
                     .addComponent(jLabel16)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -335,6 +340,10 @@ public class tableBarangMasuk extends javax.swing.JFrame {
     private void notaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_notaActionPerformed
+
+    private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addNewActionPerformed
 
     /**
      * @param args the command line arguments

@@ -33,6 +33,7 @@ public class tablepetugas extends javax.swing.JFrame {
         loadData();
         kosong();
         SetEnabledFalse();
+        
         SetEnabledTrue();
         btnsv.setEnabled(false);
         btnupdate.setEnabled(false);
