@@ -100,6 +100,11 @@ public class tableBarang extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 650, 220));
 
         addNew.setText("Add");
+        addNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewActionPerformed(evt);
+            }
+        });
         getContentPane().add(addNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
 
         Delete.setText("Delete");
@@ -137,6 +142,10 @@ public class tableBarang extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addNewActionPerformed
 
     /**
      * @param args the command line arguments

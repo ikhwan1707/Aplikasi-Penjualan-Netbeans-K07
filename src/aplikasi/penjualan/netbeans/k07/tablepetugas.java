@@ -4,19 +4,110 @@
  */
 package aplikasi.penjualan.netbeans.k07;
 
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import aplikasi.penjualan.netbeans.k07.Koneksi.koneksi;
+
 /**
  *
  * @author labprogram123
  */
 public class tablepetugas extends javax.swing.JFrame {
 
+    private static void setModel(DefaultTableModel model) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private DefaultTableModel model;
     /**
      * Creates new form tablepetugas
      */
     public tablepetugas() {
         initComponents();
+        loadData();
+        kosong();
+        SetEnabledFalse();
+        SetEnabledTrue();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        
+        txtpetugas.setEnabled(false);
+        txtnama.setEnabled(false);
+        txtemail.setEnabled(false);
+        txtalamat.setEnabled(false);
+        txttelpon.setEnabled(false);
+    }
+    
+     private void loadData() {
+        model = new DefaultTableModel();
+               
+        model.getDataVector().removeAllElements();
+        
+        model.fireTableDataChanged();
+        
+        tablepetugas.setModel(model);
+        model.addColumn("ID");
+        model.addColumn("Nama");
+        model.addColumn("Email");
+        model.addColumn("Telepon");
+        model.addColumn("Alamat");
+        
+         try{
+            
+            String sql = "SELECT * FROM tblpetugas";
+            
+            Connection c = Koneksi. getKoneksi();
+            Statement s = c.createStatement();
+            ResultSet r = s.executeQuery(sql);
+            
+            while(r.next()){
+                
+                model.addRow(new Object[]{
+                    r.getString(1),
+                    r.getString(2),
+                    r.getString(3),
+                    r.getString(4),
+                    r.getString(5)
+                });
+            }
+            tablepetugas.setModel(model);
+        }catch(SQLException e){
+            System.out.println("Terjadi Error"); 
+        }
+    }
+     
+     private void kosong(){
+        txtpetugas.setText(null);
+        txtnama.setText(null);
+        txtemail.setText(null);
+        txttelpon.setText(null);
+        txtalamat.setText(null);
     }
 
+     public void SetEnabledFalse(){
+        txtpetugas.setEnabled(false);
+        txtnama.setEnabled(false);
+        txtemail.setEnabled(false);
+        txttelpon.setEnabled(false);
+        txtalamat.setEnabled(false);
+    }
+     
+      public void SetEnabledTrue(){
+        txtpetugas.setEnabled(true);
+        txtnama.setEnabled(true);
+        txtemail.setEnabled(true);
+        txttelpon.setEnabled(true);
+        txtalamat.setEnabled(true);
+    }     
+      
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +131,7 @@ public class tablepetugas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txttelpon = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl1 = new javax.swing.JTable();
+        tablepetugas = new javax.swing.JTable();
         btnnew = new javax.swing.JButton();
         btnsv = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
@@ -88,7 +179,7 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
         getContentPane().add(txttelpon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 160, -1));
 
-        tbl1.setModel(new javax.swing.table.DefaultTableModel(
+        tablepetugas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -99,30 +190,248 @@ public class tablepetugas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+<<<<<<< HEAD
+        jScrollPane1.setViewportView(tablepetugas);
+=======
+        tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl1);
+>>>>>>> 96b0fe6aaa8b29af59a2e9996dbee1d65ce16fc8
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 470, 170));
 
         btnnew.setText("Add New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
         btnsv.setText("Save");
+        btnsv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsvActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnsv, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 60, -1));
 
         btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, -1, -1));
 
         btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
         btncancel.setText("Cancel");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, -1, -1));
 
         btnclose.setText("Close");
+        btnclose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncloseActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsvActionPerformed
+        String id = txtpetugas.getText();
+        String nama = txtnama.getText();
+        String alamat = txtalamat.getText();
+        String email = txtemail.getText();
+        String telpon = txttelpon.getText();
+        
+        if ("".equals(id) || "".equals(nama) ||
+                "".equals(alamat)|| 
+                "".equals(email) || "".equals(telpon))
+        {
+            JOptionPane.showMessageDialog(this, "Harap Lengkapi Data", "error", JOptionPane.WARNING_MESSAGE);
+        } else {
+            
+            try{
+                Connection c = Koneksi. getKoneksi();
+                String sql = "insert into tblpetugas value ( ?, ?, ?, ?, ?)";
+                PreparedStatement p = c.prepareStatement(sql);
+                
+                p.setString(1, id);
+                p.setString(2, nama);
+                p.setString(3, email);
+                p.setString(4, telpon);
+                p.setString(5, alamat);
+                
+                p.executeUpdate();
+                p.close();
+                
+                JOptionPane.showMessageDialog(null, "penyimpanan data berhasil");
+              
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }finally{
+                loadData();
+                kosong();            }
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnsvActionPerformed
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        SetEnabledTrue();
+        btnsv.setEnabled(true);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(true);
+        btnnew.setEnabled(false);
+        
+       
+    }//GEN-LAST:event_btnnewActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+       kosong();
+    }//GEN-LAST:event_btncancelActionPerformed
+
+    private void tbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl1MouseClicked
+      int baris = tablepetugas.getSelectedRow();
+      
+      if (baris == -1) {
+            return;
+        }
+      
+        String Idpetugas = txtpetugas.getName();;
+        String nama = txtnama.getName();
+        String email = txtemail.getName();
+        String telpon = txttelpon.getName();
+        String alamat = txtalamat.getName();
+        txtpetugas.setText(Idpetugas);
+        txtnama.setText(nama);
+        txtemail.setText(email);
+        txttelpon.setText(telpon);
+        txtalamat.setText(alamat);
+      
+        SetEnabledTrue();
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
+        btncancel.setEnabled(true);
+        btnnew.setEnabled(false);
+    }//GEN-LAST:event_tbl1MouseClicked
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+         int i = tablepetugas.getSelectedRow();
+        
+        if(i == -1){
+            //tidak ada baris tewrseleksi
+            JOptionPane.showMessageDialog(this, "harap pilih data terlebih dahulu", "error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String id = (String) model.getValueAt(i, 0);
+        String nama = txtnama.getText();
+        String alamat = txtalamat.getText();
+        String email = txtemail.getText();
+        String telpon = txttelpon.getText();
+
+        try{
+            
+            Connection c = Koneksi.getKoneksi();
+
+            String sql = "UPDATE tblpetugas SET NamaPetugas = ?, Alamat = ?, Email = ?, Telpon = ? WHERE IDPetugas = ?";
+            
+            PreparedStatement p = c.prepareStatement(sql);
+            
+            p.setString(1, nama);
+            p.setString(2, email);
+            p.setString(3, telpon);
+            p.setString(4, alamat);
+            p.setString(5, id);
+            
+            p.executeUpdate();
+            p.close();
+            
+            JOptionPane.showMessageDialog(null,"Ubah Data Berhasil");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"Terjadi ERROR" + e.getMessage());
+        }finally{
+            loadData();
+            kosong();
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        int i = tablepetugas.getSelectedRow();
+        
+        if(i == -1){
+            //tidak ada baris terseleksi
+            JOptionPane.showMessageDialog(this, "harap pilih data terlebih dahulu", "error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+         String Idpetugas = (String) model.getValueAt(i, 0);
+        
+        try{
+            Connection c = Koneksi. getKoneksi();
+            
+            String sql = "DELETE FROM tblpetugas WHERE Idpetugas = ?";
+            
+            PreparedStatement p = c.prepareStatement(sql);
+            p.setString(1, Idpetugas);
+            p.executeUpdate();
+            p.close();
+            
+            JOptionPane.showMessageDialog(null,
+                       "Hapus Data Berhasil");
+                
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(this,
+                        e.getMessage());
+                
+            }finally{
+            loadData();
+            kosong();
+        
+        }
+        
+        SetEnabledFalse();
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_btncloseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +484,7 @@ public class tablepetugas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbl1;
+    private javax.swing.JTable tablepetugas;
     private javax.swing.JTextField txtalamat;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtnama;
