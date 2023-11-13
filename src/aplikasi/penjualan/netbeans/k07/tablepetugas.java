@@ -45,7 +45,7 @@ public class tablepetugas extends javax.swing.JFrame {
         
         model.fireTableDataChanged();
         
-        tbl1.setModel(model);
+        tablepetugas.setModel(model);
         model.addColumn("ID");
         model.addColumn("Nama");
         model.addColumn("Email");
@@ -70,7 +70,7 @@ public class tablepetugas extends javax.swing.JFrame {
                     r.getString(5)
                 });
             }
-            tbl1.setModel(model);
+            tablepetugas.setModel(model);
         }catch(SQLException e){
             System.out.println("Terjadi Error"); 
         }
