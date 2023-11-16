@@ -16,15 +16,18 @@ import java.sql.SQLException;
  */
 public class Koneksi {
     public static Connection koneksi;
+    //public static void main(String[] args) {
+        
+    
     public static Connection getKoneksi(){
     
     if (koneksi == null)
     {
         try {
-            String url = "jdbc:mysql://localhost:3306/db_penjualan_barang_pas_xiia";
+            String url = "jdbc:mysql://localhost:3306/db_penjualan_barang_pas_xiia?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             String user = "root";
             String password = "";
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             koneksi = DriverManager.getConnection(url, user, password);
             System.out.print("Berhasil Membuat Koneksi");
         }catch(SQLException t){
