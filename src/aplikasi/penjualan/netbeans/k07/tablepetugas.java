@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import java.awt.event.MouseEvent;
 import aplikasi.penjualan.netbeans.k07.Koneksi.koneksi;
 
 /**
@@ -130,14 +131,14 @@ public class tablepetugas extends javax.swing.JFrame {
         txtemail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txttelpon = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablepetugas = new javax.swing.JTable();
-        btnnew = new javax.swing.JButton();
         btnsv = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         btncancel = new javax.swing.JButton();
         btnclose = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablepetugas = new javax.swing.JTable();
+        btnnew = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,38 +180,6 @@ public class tablepetugas extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
         getContentPane().add(txttelpon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 160, -1));
 
-        tablepetugas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-<<<<<<< HEAD
-        jScrollPane1.setViewportView(tablepetugas);
-=======
-        tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl1);
->>>>>>> 96b0fe6aaa8b29af59a2e9996dbee1d65ce16fc8
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 470, 170));
-
-        btnnew.setText("Add New");
-        btnnew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnewActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
-
         btnsv.setText("Save");
         btnsv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +219,34 @@ public class tablepetugas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, -1, -1));
+
+        tablepetugas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablepetugas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablepetugasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablepetugas);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 470, 150));
+
+        btnnew.setText("Add New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,45 +296,9 @@ public class tablepetugas extends javax.swing.JFrame {
         btnnew.setEnabled(true);
     }//GEN-LAST:event_btnsvActionPerformed
 
-    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
-        SetEnabledTrue();
-        btnsv.setEnabled(true);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(true);
-        btnnew.setEnabled(false);
-        
-       
-    }//GEN-LAST:event_btnnewActionPerformed
-
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
        kosong();
     }//GEN-LAST:event_btncancelActionPerformed
-
-    private void tbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl1MouseClicked
-      int baris = tablepetugas.getSelectedRow();
-      
-      if (baris == -1) {
-            return;
-        }
-      
-        String Idpetugas = txtpetugas.getName();;
-        String nama = txtnama.getName();
-        String email = txtemail.getName();
-        String telpon = txttelpon.getName();
-        String alamat = txtalamat.getName();
-        txtpetugas.setText(Idpetugas);
-        txtnama.setText(nama);
-        txtemail.setText(email);
-        txttelpon.setText(telpon);
-        txtalamat.setText(alamat);
-      
-        SetEnabledTrue();
-        btnupdate.setEnabled(true);
-        btndelete.setEnabled(true);
-        btncancel.setEnabled(true);
-        btnnew.setEnabled(false);
-    }//GEN-LAST:event_tbl1MouseClicked
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
          int i = tablepetugas.getSelectedRow();
@@ -432,6 +393,20 @@ public class tablepetugas extends javax.swing.JFrame {
     private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
         dispose();
     }//GEN-LAST:event_btncloseActionPerformed
+
+    private void tablepetugasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepetugasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablepetugasMouseClicked
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        // TODO add your handling code here:
+             SetEnabledTrue();
+        btnsv.setEnabled(true);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(true);
+        btnnew.setEnabled(false);
+    }//GEN-LAST:event_btnnewActionPerformed
 
     /**
      * @param args the command line arguments

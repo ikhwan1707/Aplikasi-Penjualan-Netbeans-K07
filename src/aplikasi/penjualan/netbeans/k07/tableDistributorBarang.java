@@ -423,7 +423,7 @@ public class tableDistributorBarang extends javax.swing.JFrame {
         try{
             Connection c = Koneksi.getKoneksi();
             
-            String sql = "UPDATE tbldistributor SET NamaDistributor = ?, Alamat = ?, KotaAsal = ?, Email = ?, Telepon = ? WHERE IDDistributor = ?";   
+            String sql = "UPDATE tbldistributor SET NamaDistributor = ?, Alamat = ?, KotaAsal = ?, Email = ?, Telpon = ? WHERE IDDistributor = ?";   
                     
             PreparedStatement p = c.prepareStatement(sql);
             
