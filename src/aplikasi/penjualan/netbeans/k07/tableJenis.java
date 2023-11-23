@@ -200,6 +200,7 @@ public class tableJenis extends javax.swing.JFrame {
         txtjenisbarang.setEnabled(true);
         btndelete.setEnabled(true);
         btnupdate.setEnabled(true);
+        btncancel.setEnabled(true);
     }//GEN-LAST:event_tbljenisMouseClicked
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
@@ -306,6 +307,7 @@ public class tableJenis extends javax.swing.JFrame {
         // TODO add your handling code here:
         setEnabledFalse();
         btnnew.setEnabled(true);
+        kosong();
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
