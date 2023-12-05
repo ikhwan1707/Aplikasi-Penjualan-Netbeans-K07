@@ -97,10 +97,10 @@ public class tablepenjualanbarang extends javax.swing.JFrame {
 
         jLabel3.setText("No Faktur");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 20));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, -1));
 
         jButton1.setText("Cari Data");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 60, 90, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 90, -1));
 
         jLabel4.setText("Tanggal Penjualan");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));

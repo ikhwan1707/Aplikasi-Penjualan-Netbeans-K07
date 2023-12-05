@@ -32,18 +32,7 @@ public class tablepetugas extends javax.swing.JFrame {
         initComponents();
         loadData();
         kosong();
-        SetEnabledFalse();
-        SetEnabledTrue();
-        btnsv.setEnabled(false);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(false);
-        
-        txtpetugas.setEnabled(false);
-        txtnama.setEnabled(false);
-        txtemail.setEnabled(false);
-        txtalamat.setEnabled(false);
-        txttelpon.setEnabled(false);
+        setEnabledFalse();
     }
     
      private void loadData() {
@@ -90,20 +79,26 @@ public class tablepetugas extends javax.swing.JFrame {
         txtalamat.setText(null);
     }
 
-     public void SetEnabledFalse(){
+     public void setEnabledFalse(){
         txtpetugas.setEnabled(false);
         txtnama.setEnabled(false);
+        txtalamat.setEnabled(false);
         txtemail.setEnabled(false);
         txttelpon.setEnabled(false);
-        txtalamat.setEnabled(false);
+        btnsv.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
     }
      
-      public void SetEnabledTrue(){
+      public void setEnabledTrue(){
         txtpetugas.setEnabled(true);
         txtnama.setEnabled(true);
+        txtalamat.setEnabled(true);
         txtemail.setEnabled(true);
         txttelpon.setEnabled(true);
-        txtalamat.setEnabled(true);
+        btnsv.setEnabled(true);
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
     }     
       
       
@@ -256,9 +251,7 @@ public class tablepetugas extends javax.swing.JFrame {
         String email = txtemail.getText();
         String telpon = txttelpon.getText();
         
-        if ("".equals(id) || "".equals(nama) ||
-                "".equals(alamat)|| 
-                "".equals(email) || "".equals(telpon))
+        if ("".equals(id) || "".equals(nama) || "".equals(alamat)|| "".equals(email) || "".equals(telpon))
         {
             JOptionPane.showMessageDialog(this, "Harap Lengkapi Data", "error", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -286,16 +279,14 @@ public class tablepetugas extends javax.swing.JFrame {
                 kosong();            }
         }
         
-        SetEnabledFalse();
-        btnsv.setEnabled(false);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(false);
-        btnnew.setEnabled(true);
+                setEnabledFalse();
+                btnnew.setEnabled(true);
     }//GEN-LAST:event_btnsvActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
-       kosong();
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+        kosong();
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
@@ -338,12 +329,7 @@ public class tablepetugas extends javax.swing.JFrame {
             kosong();
         }
         
-        SetEnabledFalse();
-        btnsv.setEnabled(false);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(false);
-        btnnew.setEnabled(true);
+        setEnabledFalse();
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -355,6 +341,7 @@ public class tablepetugas extends javax.swing.JFrame {
             return;
         }
         
+       
          String Idpetugas = (String) model.getValueAt(i, 0);
         
         try{
@@ -380,12 +367,8 @@ public class tablepetugas extends javax.swing.JFrame {
         
         }
         
-        SetEnabledFalse();
-        btnsv.setEnabled(false);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(false);
-        btnnew.setEnabled(true);
+            setEnabledFalse();
+            btnnew.setEnabled(true);
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
@@ -394,16 +377,41 @@ public class tablepetugas extends javax.swing.JFrame {
 
     private void tablepetugasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepetugasMouseClicked
         // TODO add your handling code here:
+         int baris = tablepetugas.getSelectedRow();
+        
+        if(baris == 1){
+            //tak ada baris terseleksi
+            return;
+        }
+        
+        String id = tablepetugas.getValueAt(baris,0).toString();
+        txtpetugas.setText(id);
+        String nama = tablepetugas.getValueAt(baris,1).toString();
+        txtnama.setText(nama);
+        String alamat = tablepetugas.getValueAt(baris,2).toString();
+        txtalamat.setText(alamat);
+        String email = tablepetugas.getValueAt(baris, 3).toString();
+        txtemail.setText(email);
+        String telpon = tablepetugas.getValueAt(baris, 4).toString();
+        txttelpon.setText(telpon);
+        
+        setEnabledFalse();
+        txtpetugas.setEnabled(true);
+        txtnama.setEnabled(true);
+        txtalamat.setEnabled(true);
+        txtemail.setEnabled(true);
+        txttelpon.setEnabled(true);
+        btndelete.setEnabled(true);
+        btnupdate.setEnabled(true);
+        btnnew.setEnabled(false);
     }//GEN-LAST:event_tablepetugasMouseClicked
 
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         // TODO add your handling code here:
-             SetEnabledTrue();
-        btnsv.setEnabled(true);
-        btnupdate.setEnabled(false);
-        btndelete.setEnabled(false);
-        btncancel.setEnabled(true);
+        setEnabledTrue();
         btnnew.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);  
     }//GEN-LAST:event_btnnewActionPerformed
 
     /**
