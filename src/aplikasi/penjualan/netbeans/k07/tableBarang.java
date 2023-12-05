@@ -3,19 +3,60 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package aplikasi.penjualan.netbeans.k07;
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author RnD
  */
 public class tableBarang extends javax.swing.JFrame {
-
+    private DefaultTableModel model;
     /**
      * Creates new form tableBarang
      */
     public tableBarang() {
         initComponents();
+        loadData();
+        kosong();
+        setEnabledFalse();
     }
+    
+     public void setEnabledFalse(){
+        txtkode.setEnabled(false);
+        txtnamabrng.setEnabled(false);
+        cmbkodejenis.setEnabled(false);
+        txtjenisbarang.setEnabled(false);
+        txthrgnet.setEnabled(false);
+        txthargajual.setEnabled(false);
+        txtstock.setEnabled(false);
+        btnsave.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false);
+        btncancel.setEnabled(false);
+    }
+    
+    public void setEnabledTrue(){  
+        txtkode.setEnabled(true);
+        txtnamabrng.setEnabled(true);
+        cmbkodejenis.setEnabled(true);
+        txtjenisbarang.setEnabled(true);
+        txthrgnet.setEnabled(true);
+        txthargajual.setEnabled(true);
+        txtstock.setEnabled(true);
+        btnsave.setEnabled(true);
+        btnupdate.setEnabled(true);
+        btndelete.setEnabled(true);
+        btncancel.setEnabled(true);
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,64 +68,70 @@ public class tableBarang extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        kdBarang = new javax.swing.JTextField();
+        txtkode = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        namaBarang = new javax.swing.JTextField();
-        hargaNet = new javax.swing.JTextField();
+        txtnamabrng = new javax.swing.JTextField();
+        txthrgnet = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        hargaJual = new javax.swing.JTextField();
+        txthargajual = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        Stock = new javax.swing.JTextField();
+        txtstock = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableBarang = new javax.swing.JTable();
-        addNew = new javax.swing.JButton();
-        Delete = new javax.swing.JButton();
-        Close = new javax.swing.JButton();
-        Cancel = new javax.swing.JButton();
-        Save = new javax.swing.JButton();
+        tblbarang = new javax.swing.JTable();
+        btnnew = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        btnclose = new javax.swing.JButton();
+        btncancel = new javax.swing.JButton();
+        btnsave = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        CbxKodeJenis = new javax.swing.JComboBox<>();
+        cmbkodejenis = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
-        jenisBarang = new javax.swing.JTextField();
+        txtjenisbarang = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        Update = new javax.swing.JButton();
+        btnupdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Kode Barang");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
-        getContentPane().add(kdBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 110, -1));
+
+        txtkode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkodeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtkode, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 110, -1));
 
         jLabel2.setText("Nama Barang");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         jLabel3.setText("Kode Jenis");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(namaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 330, -1));
-        getContentPane().add(hargaNet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, -1));
+        getContentPane().add(txtnamabrng, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 330, -1));
+        getContentPane().add(txthrgnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, -1));
 
         jLabel4.setText("Harga Net");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel5.setText("Harga Jual");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
-        getContentPane().add(hargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 110, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 110, -1));
 
         jLabel6.setText("Stock");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 60, -1));
-        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 50, -1));
+        getContentPane().add(txtstock, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 50, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Table Data Barang");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        tableBarang.setModel(new javax.swing.table.DefaultTableModel(
+        tblbarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -95,41 +142,61 @@ public class tableBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableBarang);
+        jScrollPane1.setViewportView(tblbarang);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 650, 220));
 
-        addNew.setText("Add");
-        addNew.addActionListener(new java.awt.event.ActionListener() {
+        btnnew.setText("Add New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addNewActionPerformed(evt);
+                btnnewActionPerformed(evt);
             }
         });
-        getContentPane().add(addNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
+        getContentPane().add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 570, -1, -1));
 
-        Delete.setText("Delete");
-        getContentPane().add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
+        btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 570, 70, -1));
 
-        Close.setText("Close");
-        getContentPane().add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, 70, -1));
+        btnclose.setText("Close");
+        btnclose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncloseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, 70, -1));
 
-        Cancel.setText("Cancel");
-        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 70, -1));
+        btncancel.setText("Cancel");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 70, -1));
 
-        Save.setText("Save");
-        getContentPane().add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, -1));
+        btnsave.setText("Save");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 570, 70, -1));
 
         jTextField1.setBackground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 710, 50));
 
-        CbxKodeJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Kode Jenis Barang", " " }));
-        getContentPane().add(CbxKodeJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 170, 20));
+        cmbkodejenis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih Kode Jenis Barang", " " }));
+        getContentPane().add(cmbkodejenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 170, 20));
 
         jLabel8.setText("Jenis Barang");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        jenisBarang.setEnabled(false);
-        getContentPane().add(jenisBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 330, -1));
+        txtjenisbarang.setEnabled(false);
+        getContentPane().add(txtjenisbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 330, -1));
 
         jLabel9.setText("Rp");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
@@ -137,16 +204,97 @@ public class tableBarang extends javax.swing.JFrame {
         jLabel10.setText("Rp");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
-        Update.setText("Update");
-        getContentPane().add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, -1, -1));
+        btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 70, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addNewActionPerformed
+        setEnabledTrue();
+        btnnew.setEnabled(false);
+        btnupdate.setEnabled(false);
+        btndelete.setEnabled(false); 
+    }//GEN-LAST:event_btnnewActionPerformed
 
+    private void txtkodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtkodeActionPerformed
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        // TODO add your handling code here:
+        setEnabledFalse();
+        btnnew.setEnabled(true);
+    }//GEN-LAST:event_btncancelActionPerformed
+
+    private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncloseActionPerformed
+
+    private void loadData(){
+        model = new DefaultTableModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged();
+        
+        tblbarang.setModel(model);
+        model.addColumn("Kode Barang");
+        model.addColumn("Nama Barang");
+        model.addColumn("Kode Jenis");
+        model.addColumn("Jenis Barang");
+        model.addColumn("Harga Net");
+        model.addColumn("Harga Jual");
+        model.addColumn("Stock");
+        
+        try{
+            
+            String sql = "SELECT * FROM tblbarang";
+            Connection c = Koneksi.getKoneksi();
+            Statement s = c.createStatement();
+            ResultSet r = s.executeQuery(sql);
+            
+            while(r.next()){
+                model.addRow(new Object[]{
+                    r.getString(1),
+                    r.getString(2)
+                });
+            }
+        }catch (SQLException e) {
+            System.out.append("Terjadi Error");
+        }
+    }
+    
+    private void kosong(){
+        txtkode.setText(null);
+        txtnamabrng.setText(null);
+        cmbkodejenis.setSelectedIndex(0);
+        txtjenisbarang.setText(null);
+        txthrgnet.setText(null);
+        txthargajual.setText(null);
+        txtstock.setText(null);
+    }
     /**
      * @param args the command line arguments
      */
@@ -183,16 +331,13 @@ public class tableBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancel;
-    private javax.swing.JComboBox<String> CbxKodeJenis;
-    private javax.swing.JButton Close;
-    private javax.swing.JButton Delete;
-    private javax.swing.JButton Save;
-    private javax.swing.JTextField Stock;
-    private javax.swing.JButton Update;
-    private javax.swing.JButton addNew;
-    private javax.swing.JTextField hargaJual;
-    private javax.swing.JTextField hargaNet;
+    private javax.swing.JButton btncancel;
+    private javax.swing.JButton btnclose;
+    private javax.swing.JButton btndelete;
+    private javax.swing.JButton btnnew;
+    private javax.swing.JButton btnsave;
+    private javax.swing.JButton btnupdate;
+    private javax.swing.JComboBox<String> cmbkodejenis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -205,9 +350,12 @@ public class tableBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jenisBarang;
-    private javax.swing.JTextField kdBarang;
-    private javax.swing.JTextField namaBarang;
-    private javax.swing.JTable tableBarang;
+    private javax.swing.JTable tblbarang;
+    private javax.swing.JTextField txthargajual;
+    private javax.swing.JTextField txthrgnet;
+    private javax.swing.JTextField txtjenisbarang;
+    private javax.swing.JTextField txtkode;
+    private javax.swing.JTextField txtnamabrng;
+    private javax.swing.JTextField txtstock;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,9 +48,7 @@ public class tablepetugas extends javax.swing.JFrame {
     
      private void loadData() {
         model = new DefaultTableModel();
-               
         model.getDataVector().removeAllElements();
-        
         model.fireTableDataChanged();
         
         tablepetugas.setModel(model);

@@ -35,11 +35,11 @@ public class tablepenjualanbarang extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -90,7 +90,7 @@ public class tablepenjualanbarang extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
@@ -109,7 +109,7 @@ public class tablepenjualanbarang extends javax.swing.JFrame {
         jLabel5.setText("ID Petugas");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Data Petugas" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih Data Petugas" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 140, -1));
 
         jLabel6.setText("Nama Petugas");
@@ -119,14 +119,14 @@ public class tablepenjualanbarang extends javax.swing.JFrame {
         jLabel7.setText("Kode Barang");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Data Barang" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih Data Barang" }));
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, -1));
 
         jLabel8.setText("Nama Barang");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 330, -1));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 120, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 120, -1));
 
         jLabel9.setText("Harga Jual");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
