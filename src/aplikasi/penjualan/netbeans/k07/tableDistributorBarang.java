@@ -67,7 +67,6 @@ public class tableDistributorBarang extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtnama = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,13 +82,14 @@ public class tableDistributorBarang extends javax.swing.JFrame {
         btndelete = new javax.swing.JButton();
         btncancel = new javax.swing.JButton();
         btnclose = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 102));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("Entri Data Distributor Barang");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -120,8 +120,6 @@ public class tableDistributorBarang extends javax.swing.JFrame {
         jLabel6.setText("Email");
 
         jLabel7.setText("Telpon");
-
-        jLabel8.setText("Maksimal 15 Digit");
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +204,8 @@ public class tableDistributorBarang extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Maksimal 15 Digit");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -247,7 +247,6 @@ public class tableDistributorBarang extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txttelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< HEAD
                                         .addComponent(jLabel8))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
@@ -261,16 +260,12 @@ public class tableDistributorBarang extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtnama, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(txtId))))
-                .addGap(0, 0, Short.MAX_VALUE))
-=======
-                                        .addComponent(jLabel8)))))))
                 .addGap(0, 57, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> 252c7056164948349859ca9709575e6b02a84c51
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,7 +497,8 @@ public class tableDistributorBarang extends javax.swing.JFrame {
 
     private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed
         // TODO add your handling code here:
-        
+          this.dispose();
+          System.exit(0);
     }//GEN-LAST:event_btncloseActionPerformed
 
     private void tabledistributorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabledistributorMouseClicked
